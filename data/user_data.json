@@ -1,0 +1,27 @@
+[
+  {
+    "gender": "male",
+    "age": 22,
+    "height": 175,
+    "weight": 70,
+    "schedule": "6pm weekdays + weekends",
+    "nutrition": "low protein, high carbs",
+    "goal": "muscle gain",
+    "meals": [
+      "Oats + eggs",
+      "Chicken + rice",
+      "Protein shake",
+      "Salad",
+      "Fish + quinoa"
+    ],
+    "workouts": [
+      "Day 1: Push",
+      "Day 2: Pull",
+      "Day 3: Legs",
+      "Day 4: Push",
+      "Day 5: Pull",
+      "Day 6: HIIT",
+      "Day 7: Rest"
+    ]
+  }
+]
