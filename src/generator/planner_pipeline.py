@@ -58,19 +58,43 @@ print("### Nutrition Plan\n")
 print(nutrition_md)
 
 
-# Output to a Markdown file
-output_file = os.path.join(os.path.dirname(__file__), "weekly_plan.md")
+# # Output to a Markdown file
+# output_file = os.path.join(os.path.dirname(__file__), "weekly_plan.md")
 
-with open(output_file, "w", encoding="utf-8") as f:
-    # Write summary
-    f.write(summary_text + "\n\n")
+# with open(output_file, "w", encoding="utf-8") as f:
+#     # Write summary
+#     f.write(summary_text + "\n\n")
     
-    # Write workout plan
-    f.write("### Workout Plan\n\n")
-    f.write(workout_md + "\n\n")
+#     # Write workout plan
+#     f.write("### Workout Plan\n\n")
+#     f.write(workout_md + "\n\n")
     
-    # Write nutrition plan
-    f.write("### Nutrition Plan\n\n")
-    f.write(nutrition_md + "\n")
+#     # Write nutrition plan
+#     f.write("### Nutrition Plan\n\n")
+#     f.write(nutrition_md + "\n")
 
-print(f"Weekly plan saved successfully at {output_file}")
+# print(f"Weekly plan saved successfully at {output_file}")
+
+
+
+def generate_weekly_markdown(user):
+    summary_text = generate_user_summary(user)
+    workout_md = generate_workout_markdown(user)
+    nutrition_md = generate_nutrition_markdown(user)
+
+    output_file = os.path.join(os.path.dirname(__file__), "weekly_plan.md")
+
+    with open(output_file, "w", encoding="utf-8") as f:
+        # Write summary
+        f.write(summary_text + "\n\n")
+        
+        # Write workout plan
+        f.write("### Workout Plan\n\n")
+        f.write(workout_md + "\n\n")
+        
+        # Write nutrition plan
+        f.write("### Nutrition Plan\n\n")
+        f.write(nutrition_md + "\n")
+
+    print(f"Weekly plan saved successfully at {output_file}")
+    return output_file
