@@ -7,9 +7,9 @@ import streamlit as st
 BASE_DIR = os.path.dirname(__file__)
 OUTPUTS_DIR = os.path.join(BASE_DIR, "outputs")  # or wherever your files are
 
-WEEKLY_MD = os.path.join(BASE_DIR, "..", 'src',"generator", "weekly_plan.md")
-MOTIVATIONAL_MD = os.path.join(BASE_DIR, "..",'src', "generator", "motivational_script.md")
-PODCAST_MP3 = os.path.join(BASE_DIR, "..", 'src',"audio", "podcast.mp3")
+WEEKLY_MD = os.path.join(BASE_DIR, "outputs", "weekly_plan.md")
+MOTIVATIONAL_MD = os.path.join(BASE_DIR, "outputs", "motivational_script.md")
+PODCAST_MP3 = os.path.join(BASE_DIR, "outputs", "podcast.mp3")
 
 # -----------------------------
 # Streamlit UI
