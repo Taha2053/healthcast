@@ -1,0 +1,160 @@
+import pandas as pd
+import json
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+
+# -------------------------------
+# 1. Load dataset
+# -------------------------------
+df = pd.read_json("C:/Users/HP/Downloads/work/fitness-users.json")  # replace with your dataset file
+df = df.drop(["join_date","preferred_workout_time"], axis=1)
+
+# Example: add target columns (in your dataset, you should already have them)
+foods = ["Oatmeal", "Eggs", "Smoothie", "Oatmeal", "Eggs"]
+df["breakfast_food"] = (foods * (len(df)//len(foods) + 1))[:len(df)]
+
+lunches = ["Chicken Salad", "Rice & Beans", "Grilled Fish", "Pasta", "Chicken Salad"]
+df["lunch_food"] = (lunches * (len(df)//len(lunches) + 1))[:len(df)]
+
+dinners = ["Grilled Salmon", "Steak", "Vegetable Soup", "Chicken Wrap", "Grilled Salmon"]
+df["dinner_food"] = (dinners * (len(df)//len(dinners) + 1))[:len(df)]
+
+# -------------------------------
+# 2. Preprocess features
+# -------------------------------
+categorical_cols = ["gender", "fitness_level", "goals", "activity_level"]
+
+# Encode categorical with "unknown" fallback
+encoders = {}
+for col in categorical_cols:
+    df[col] = df[col].astype(str).fillna("unknown")
+    le = LabelEncoder()
+    le.fit(df[col].tolist() + ["unknown"])
+    df[col] = le.transform(df[col])
+    encoders[col] = le
+
+# Scale numerical columns
+scaler = StandardScaler()
+df[["age", "weight", "height", "bmi"]] = scaler.fit_transform(df[["age", "weight", "height", "bmi"]])
+
+# Encode meal labels
+food_encoders = {}
+for meal_col in ["breakfast_food", "lunch_food", "dinner_food"]:
+    le = LabelEncoder()
+    df[meal_col] = df[meal_col].astype(str)
+    le.fit(df[meal_col])
+    df[meal_col] = le.transform(df[meal_col])
+    food_encoders[meal_col] = le
+
+# -------------------------------
+# 3. Train one model per meal with proper splits
+# -------------------------------
+X = df.drop(columns=["user_id", "breakfast_food", "lunch_food", "dinner_food"])
+y_breakfast = df["breakfast_food"]
+y_lunch = df["lunch_food"]
+y_dinner = df["dinner_food"]
+
+# Separate splits for each meal
+X_train_b, X_test_b, yb_train, yb_test = train_test_split(X, y_breakfast, test_size=0.2, random_state=42)
+X_train_l, X_test_l, yl_train, yl_test = train_test_split(X, y_lunch, test_size=0.2, random_state=42)
+X_train_d, X_test_d, yd_train, yd_test = train_test_split(X, y_dinner, test_size=0.2, random_state=42)
+
+breakfast_model = RandomForestClassifier(n_estimators=100, random_state=42).fit(X_train_b, yb_train)
+lunch_model = RandomForestClassifier(n_estimators=100, random_state=42).fit(X_train_l, yl_train)
+dinner_model = RandomForestClassifier(n_estimators=100, random_state=42).fit(X_train_d, yd_train)
+
+# -------------------------------
+# 4. Calculate accuracy
+# -------------------------------
+yb_pred = breakfast_model.predict(X_test_b)
+yl_pred = lunch_model.predict(X_test_l)
+yd_pred = dinner_model.predict(X_test_d)
+
+print(f"Breakfast Accuracy: {accuracy_score(yb_test, yb_pred):.2f}")
+print(f"Lunch Accuracy: {accuracy_score(yl_test, yl_pred):.2f}")
+print(f"Dinner Accuracy: {accuracy_score(yd_test, yd_pred):.2f}")
+
+# -------------------------------
+# 5. Food dictionary with portions
+# -------------------------------
+food_library = {
+    "Oatmeal": [("Oatmeal", "50g"), ("Banana", "1 piece"), ("Milk", "200ml")],
+    "Eggs": [("Eggs", "2 pieces"), ("Toast", "2 slices"), ("Orange Juice", "250ml")],
+    "Smoothie": [("Smoothie", "300ml"), ("Granola", "30g")],
+    "Chicken Salad": [("Chicken Breast", "120g"), ("Lettuce", "50g"), ("Olive Oil", "10ml")],
+    "Rice & Beans": [("Rice", "100g"), ("Beans", "80g"), ("Avocado", "50g")],
+    "Grilled Fish": [("Fish", "150g"), ("Quinoa", "100g"), ("Spinach", "60g")],
+    "Pasta": [("Pasta", "120g"), ("Tomato Sauce", "80g"), ("Parmesan", "20g")],
+    "Grilled Salmon": [("Salmon", "150g"), ("Asparagus", "80g"), ("Sweet Potato", "100g")],
+    "Steak": [("Steak", "180g"), ("Mashed Potatoes", "100g"), ("Green Beans", "70g")],
+    "Vegetable Soup": [("Soup", "300ml"), ("Bread", "1 slice")],
+    "Chicken Wrap": [("Chicken", "100g"), ("Tortilla", "1 piece"), ("Lettuce", "40g")]
+}
+
+def expand_meal(pred):
+    #Expand predicted dish into full meal with portions
+    return [{"food": food, "amount": amount} for food, amount in food_library.get(pred, [(pred, "1 serving")])]
+
+# -------------------------------
+# 6. Generate JSON plan for a new user
+# -------------------------------
+
+new_user = {
+    "user_id": "user_test",
+    "age": 30,
+    "weight": 70,
+    "height": 175,
+    "bmi": 22.9,
+    "fitness_level": "beginner",
+    "goals": "weight_loss",
+    "gender": "male",
+    "activity_level": "moderate"
+}
+
+"""
+new_user = {
+    "user_id": "zaineb",
+    "age": 22,
+    "weight": 65,
+    "height": 154,
+    "bmi": 27.4,
+    "fitness_level": "beginner",
+    "goals": "weight_loss",
+    "gender": "female",
+    "activity_level": "moderate"
+}
+"""
+
+user_df = pd.DataFrame([new_user])
+
+# Encode safely with fallback
+for col in categorical_cols:
+    user_df[col] = user_df[col].astype(str)
+    user_df[col] = user_df[col].apply(lambda x: x if x in encoders[col].classes_ else "unknown")
+    user_df[col] = encoders[col].transform(user_df[col])
+
+# Scale numerics
+user_df[["age", "weight", "height", "bmi"]] = scaler.transform(user_df[["age", "weight", "height", "bmi"]])
+X_user = user_df.drop(columns=["user_id"])
+
+# Predictions
+b_pred = food_encoders["breakfast_food"].inverse_transform(breakfast_model.predict(X_user))[0]
+l_pred = food_encoders["lunch_food"].inverse_transform(lunch_model.predict(X_user))[0]
+d_pred = food_encoders["dinner_food"].inverse_transform(dinner_model.predict(X_user))[0]
+
+# Expand into full meals
+meal_plan = {
+    "meal_plan": [
+        {"meal": "breakfast", "foods": expand_meal(b_pred)},
+        {"meal": "lunch", "foods": expand_meal(l_pred)},
+        {"meal": "dinner", "foods": expand_meal(d_pred)}
+    ]
+}
+
+# Save JSON
+with open("meal_plan.json", "w") as f:
+    json.dump(meal_plan, f, indent=2)
+
+print(json.dumps(meal_plan, indent=2))
