@@ -1,6 +1,10 @@
 import os
 from gtts import gTTS
 
+
+output_path = r"T:\Users\Tahaw\Desktop\healthcast\src\audio\podcast.mp3"
+
+
 def read_markdown(md_file_path: str) -> str:
     """
     Reads a Markdown file and returns the text without headers.
@@ -22,14 +26,14 @@ def generate_podcast(text: str, output_path: str, lang: str = "en") -> None:
     tts.save(output_path)
     print(f"🎧 Podcast saved at: {output_path}")
 
-def run_pipeline(md_file_path: str) -> str:
+def run_pipeline(md_file_path: str, audio_output_path: str) -> str:
     """
     Full pipeline: read Markdown → convert to audio → return path to .mp3
     """
     script_text = read_markdown(md_file_path)
-    audio_path = os.path.splitext(md_file_path)[0] + ".mp3"
-    generate_podcast(script_text, audio_path)
-    return audio_path
+    generate_podcast(script_text, audio_output_path)
+    return audio_output_path
+
 
 # -----------------------------
 # Example usage
@@ -37,6 +41,8 @@ def run_pipeline(md_file_path: str) -> str:
 if __name__ == "__main__":
     script_dir = os.path.dirname(__file__)
     md_file_path = os.path.join(script_dir,'..', 'generator', "motivational_script.md")
+    
+    output_path = os.path.join(script_dir, "podcast.mp3")  # save in src/audio/ or wherever you want
 
-    mp3_path = run_pipeline(md_file_path)
+    mp3_path = run_pipeline(md_file_path, output_path)
     print(f"✅ Pipeline complete! Podcast ready at: {mp3_path}")
