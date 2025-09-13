@@ -1,18 +1,19 @@
 # Motivational Script
 
-*(Upbeat, energetic electronic music fades in and then fades to a low background hum)*
+*(Upbeat, energetic intro music starts and fades into the background)*
 
-**Host (Energetic, friendly voice):**
-Hey, what is up! It's your friendly AI Fitness Coach, and I am fired up because your weekly game plan is officially locked and loaded. You told me you want to build muscle, and my friend, this week is where we make it happen.
+**Host (AI Coach):** What's up, superstar! It’s your friendly AI Fitness Coach, and I am FIRED UP. Why? Because I’ve just finished calibrating your personal blueprint for success, and it is looking absolutely awesome.
 
-I see you’ve carved out that 6 PM slot every weekday. That’s dedication, and that's the energy we're going to build on!
+You told me you’re ready to build some serious muscle, and you’ve got that 6 PM weekday slot ready to go. So, let’s make it happen!
 
-Alright, let's break it down. Your workout schedule is a powerhouse Push-Pull-Legs split. We're hitting every muscle group with intensity and precision from Monday to Friday. Think of it like this: every session, you're laying another brick on the foundation of the physique you want. Then, Saturday, we hit that HIIT session to supercharge your metabolism and keep you athletic!
+This week is all about laying the foundation. We're jumping into a killer Push-Pull-Legs split. On Monday and Thursday, we’re gonna be building that powerful chest and those boulder shoulders on our **Push Days**. Tuesday and Friday, it’s all about crafting that V-taper back and building strong biceps on our **Pull Days**. And Wednesday? Oh, you know it. We are NEVER skipping **Leg Day**!
 
-But listen up, because this next part is the secret weapon: nutrition. Workouts tear the muscle down, but food builds it back up stronger. We're making a simple, powerful switch this week—fueling your body with the high-quality protein it’s been craving. That chicken, those eggs, that fish… that’s not just food. That is the raw material for growth! Every meal on this plan is a direct investment in your goal.
+We’ll cap off the hard work with a high-energy HIIT session on Saturday to torch fat and boost your metabolism. Then comes Sunday—your champion’s rest day. That’s when the real growth happens, so embrace it!
 
-And Sunday? We rest. We recover. We grow.
+Now, the work in the gym is only half the battle. I’ve analyzed your nutrition data, and we’re making a simple, powerful switch: boosting that protein to fuel your gains. We’re talking lean chicken, fish, eggs… this is the high-quality fuel your body is craving to repair and build.
 
-So, the plan is set. The code is written. Your job is simple: show up at 6 PM, give it your all, and fuel your body right. Consistency is your superpower this week. You've got this. Now let's go crush it!
+Look, you’ve got the goal. You’ve got the schedule. And now, you have the perfect plan. Your only job is to show up and give it your all. Every workout you complete, every meal you stick to, you're casting a vote for the stronger, more powerful version of yourself.
 
-*(Upbeat electronic music fades back in and plays out)*
+You've got this. I know you do. Now let's get to work!
+
+*(Upbeat music swells and fades out)*
