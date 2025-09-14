@@ -29,7 +29,7 @@ DATA_DIR = os.path.join(BASE_DIR, "..", "data")
 WEEKLY_MD = os.path.join(OUTPUTS_DIR, "weekly_plan.md")
 MOTIVATIONAL_MD = os.path.join(OUTPUTS_DIR, "motivational_script.md")
 PODCAST_MP3 = os.path.join(OUTPUTS_DIR, "podcast.mp3")
-USER_JSON = os.path.join(DATA_DIR, "user_data.json")
+USER_JSON = os.path.join(DATA_DIR, "fitness_profiles.json")
 MEAL_JSON = os.path.join(DATA_DIR, "meal_plan.json")
 
 # Ensure outputs folder exists
@@ -94,7 +94,7 @@ if st.button("Generate Full Plan"):
                 with open(MOTIVATIONAL_MD, "r", encoding="utf-8") as f:
                     script_content = f.read()
                 st.subheader("💬 Motivational Script")
-                # st.text_area("Script", script_content, height=200)
+                st.text_area("Script", script_content, height=200)
                 st.download_button("⬇️ Download Motivational Script (.md)", script_content, file_name="motivational_script.md")
 
             # --- Step 5: Generate Podcast Audio ---

@@ -16,5 +16,100 @@
     "schedule_preferences": null,
     "medical_conditions": [],
     "equipment_available": []
+  },
+  {
+    "age": 30,
+    "weight": 81.6,
+    "fitness_level": "intermediate",
+    "goals": [
+      "endurance",
+      "general fitness",
+      "strength"
+    ],
+    "gender": "male",
+    "activity_level": "moderately active",
+    "height": null,
+    "bmi": null,
+    "bmi_category": null,
+    "nutrition_preferences": null,
+    "schedule_preferences": null,
+    "medical_conditions": [],
+    "equipment_available": []
+  },
+  {
+    "age": 30,
+    "weight": 81.6,
+    "fitness_level": "intermediate",
+    "goals": [
+      "endurance",
+      "general fitness",
+      "strength"
+    ],
+    "gender": "male",
+    "activity_level": "moderately active",
+    "height": null,
+    "bmi": null,
+    "bmi_category": null,
+    "nutrition_preferences": null,
+    "schedule_preferences": null,
+    "medical_conditions": [],
+    "equipment_available": []
+  },
+  {
+    "age": 30,
+    "weight": 81.6,
+    "fitness_level": "intermediate",
+    "goals": [
+      "endurance",
+      "general fitness",
+      "strength"
+    ],
+    "gender": "male",
+    "activity_level": "moderately active",
+    "height": null,
+    "bmi": null,
+    "bmi_category": null,
+    "nutrition_preferences": null,
+    "schedule_preferences": null,
+    "medical_conditions": [],
+    "equipment_available": []
+  },
+  {
+    "age": 30,
+    "weight": 81.6,
+    "fitness_level": "intermediate",
+    "goals": [
+      "endurance",
+      "general fitness",
+      "strength"
+    ],
+    "gender": "male",
+    "activity_level": "moderately active",
+    "height": null,
+    "bmi": null,
+    "bmi_category": null,
+    "nutrition_preferences": null,
+    "schedule_preferences": null,
+    "medical_conditions": [],
+    "equipment_available": []
+  },
+  {
+    "age": 30,
+    "weight": 81.6,
+    "fitness_level": "intermediate",
+    "goals": [
+      "endurance",
+      "general fitness",
+      "strength"
+    ],
+    "gender": "male",
+    "activity_level": "moderately active",
+    "height": null,
+    "bmi": null,
+    "bmi_category": null,
+    "nutrition_preferences": null,
+    "schedule_preferences": null,
+    "medical_conditions": [],
+    "equipment_available": []
   }
 ]
