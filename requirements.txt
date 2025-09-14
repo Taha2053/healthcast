@@ -5,3 +5,7 @@ sentencepiece==0.2.1
 spacy==3.8.7
 streamlit==1.49.1
 transformers[torch]==4.56.1
+scikit-learn>=1.2.0
+pandas>=2.0.0
+numpy>=1.24.0
+joblib>=1.2.0

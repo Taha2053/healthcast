@@ -1,0 +1,14 @@
+[
+  {
+    "age": 25,
+    "height": 180,
+    "weight": 75,
+    "bmi": 23.1,
+    "gender": "male",
+    "fitness_level": "intermediate",
+    "activity_level": "very_active",
+    "schedule": "morning weekdays",
+    "nutrition": "high protein, low carbs",
+    "goal": "muscle_gain"
+  }
+]
