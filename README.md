@@ -31,53 +31,44 @@
 ---
 
 ## 📂 Project Structure 
-├── .env                           # Environment variables
-├── .gitignore                     # Git ignore rules
-├── requirements.txt               # Python dependencies
-├── tree_structure.py              # Project structure generator
-│
-├── app/                           # Main application
-│   ├── app.py                     # Flask/FastAPI main app
-│   └── outputs/                   # Generated content
+├── .env
+├── .gitignore
+├── app
+│   ├── app.py
+│   └── outputs
 │       ├── motivational_script.md
 │       ├── podcast.mp3
 │       └── weekly_plan.md
-│
-├── data/                          # Data storage
-│   ├── dataset_nutrition_random_forest/
-│   ├── dataset_nutrition_xgboost/
-│   ├── fitness_profiles.json      # User fitness data
-│   ├── meal_plan.json             # Generated meal plans
-│   ├── user_data.json             # User preferences
-│   └── workout_plan.json          # Generated workout plans
-│
-├── src/                           # Source code
-│   ├── audio/                     # Audio processing
-│   │   └── podcast_pipeline.py   # Podcast generation pipeline
-│   │
-│   ├── extractions/               # Data extraction modules
-│   │   ├── extraction.py          # General extraction utilities
-│   │   ├── fitness_extractor.py   # Fitness data extraction
-│   │   └── fitness_profiles.json  # Extracted fitness profiles
-│   │
-│   ├── generator/                 # Content generation
-│   │   ├── planner_pipeline.py    # Planning pipeline
-│   │   └── podcast_script.py      # Podcast script generator
-│   │
-│   ├── nutritions_model/          # Nutrition ML model
-│   │   ├── encoders.pkl           # Label encoders
-│   │   ├── food_encoders.pkl      # Food category encoders
-│   │   ├── predict_meals.py       # Meal prediction logic
-│   │   ├── scaler.pkl             # Feature scaler
-│   │   ├── user.json              # User model data
-│   │   └── xgb_meal_models.pkl    # XGBoost meal models
-│   │
-│   └── workout_model/             # Workout ML model (TBD)
-│
-├── notebooks/                     # Jupyter notebooks for analysis
-├── tests/                         # Test files
-│   └── test_pipeline.py           # Pipeline tests
-
+├── data
+│   ├── dataset_nutrition_random_forest
+│   ├── dataset_nutrition_xgboost
+│   ├── fitness_profiles.json
+│   ├── meal_plan.json
+│   ├── user_data.json
+│   └── workout_plan.json
+├── notebooks
+├── requirements.txt
+├── src
+│   ├── audio
+│   │   └── podcast_pipeline.py
+│   ├── extractions
+│   │   ├── extraction.py
+│   │   ├── fitness_extractor.py
+│   │   └── fitness_profiles.json
+│   ├── generator
+│   │   ├── planner_pipeline.py
+│   │   └── podcast_script.py
+│   ├── nutritions_model
+│   │   ├── encoders.pkl
+│   │   ├── food_encoders.pkl
+│   │   ├── predict_meals.py
+│   │   ├── scaler.pkl
+│   │   ├── user.json
+│   │   └── xgb_meal_models.pkl
+│   └── workout_model
+├── tests
+│   └── test_pipeline.py
+└── tree_structure.py
 ---
 
 ## ⚙️ Installation  
