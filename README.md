@@ -84,15 +84,16 @@ app.py
 
 Create a virtual environment and activate it:
 
+```bash
 python -m venv venv
-source venv/bin/activate   # Linux/Mac
-venv\Scripts\activate      # Windows
-
+venv\Scripts\activate      
+```
 
 Install dependencies:
 
+```bash
 pip install -r requirements.txt
-
+```
 
 Set up your .env file with the required API keys (Gemini, Murf, etc.).
 
@@ -100,8 +101,9 @@ Set up your .env file with the required API keys (Gemini, Murf, etc.).
 
 Run the Streamlit app:
 
+```bash
 streamlit run app/app.py
-
+```
 
 Enter your health/lifestyle details in natural language.
 
