@@ -35,41 +35,77 @@
 ├── .env
 
 ├── .gitignore
+
 ├── app
+
 │ ├── app.py
+
 │ └── outputs
+
 │ ├── motivational_script.md
+
 │ ├── podcast.mp3
+
 │ └── weekly_plan.md
+
 ├── data
+
 │ ├── dataset_nutrition_random_forest
+
 │ ├── dataset_nutrition_xgboost
+
 │ ├── fitness_profiles.json
+
 │ ├── meal_plan.json
+
 │ ├── user_data.json
+
 │ └── workout_plan.json
+
 ├── notebooks
+
 ├── requirements.txt
+
 ├── src
+
 │ ├── audio
+
 │ │ └── podcast_pipeline.py
+
 │ ├── extractions
+
 │ │ ├── extraction.py
+
 │ │ ├── fitness_extractor.py
+
 │ │ └── fitness_profiles.json
+
 │ ├── generator
+
 │ │ ├── planner_pipeline.py
+
 │ │ └── podcast_script.py
+
 │ ├── nutritions_model
+
 │ │ ├── encoders.pkl
+
 │ │ ├── food_encoders.pkl
+
 │ │ ├── predict_meals.py
+
 │ │ ├── scaler.pkl
+
 │ │ ├── user.json
+
 │ │ └── xgb_meal_models.pkl
+
 │ └── workout_model
+
 ├── tests
+
 │ └── test_pipeline.py
+
 └── tree_structure.py
 
 
