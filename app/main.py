@@ -59,12 +59,7 @@ def run_full_pipeline(user_input_text: str):
     generate_weekly_markdown = dynamic_import(planner_pipeline_path, "generate_weekly_markdown")
     md_plan_path = os.path.join(OUTPUTS_DIR, "weekly_plan.md")
     print("Generating weekly markdown plan...")
-    generate_weekly_markdown(
-        workout_path=WORKOUT_PLAN_PATH,
-        fitness_path=fitness_profile_path,
-        meals_path=meal_plan_path,
-        output_md_path=md_plan_path
-    )
+    generate_weekly_markdown()
 
     # 4️⃣ Generate motivational script
     podcast_script_path = os.path.join(PROJECT_ROOT, "src/generator/podcast_script.py")
