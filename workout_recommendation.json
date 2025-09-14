@@ -1,0 +1,27 @@
+[
+    {
+        "gender": "male",
+        "age": 22,
+        "height": 175,
+        "weight": 70,
+        "schedule": "6pm weekdays + weekends",
+        "nutrition": "low protein, high carbs",
+        "goal": "muscle gain",
+        "meals": [
+            "Oats + eggs",
+            "Chicken + rice",
+            "Protein shake",
+            "Salad",
+            "Fish + quinoa"
+        ],
+        "workouts": [
+            "Day 1: Push - Bench Press, Shoulder Press, Triceps",
+            "Day 2: Pull - Deadlifts, Rows, Biceps",
+            "Day 3: Legs - Squats, Lunges, Calf Raises",
+            "Day 4: Push - Incline Press, Lateral Raises, Dips",
+            "Day 5: Pull - Pull-ups, Face Pulls, Curls",
+            "Day 6: HIIT - Circuit Training",
+            "Day 7: Rest"
+        ]
+    }
+]
