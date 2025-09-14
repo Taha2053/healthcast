@@ -33,6 +33,7 @@
 ## 📂 Project Structure  
 
 ├── .env
+
 ├── .gitignore
 ├── app
 │ ├── app.py
