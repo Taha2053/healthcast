@@ -217,11 +217,10 @@ def main():
     # Get the directory where this script is located
     script_dir = Path(__file__).parent
 
-    # Initialize predictor with the script's folder as model_dir
-    predictor = MealPredictor(model_dir=script_dir)
+    # Input JSON file in '../../data/user.json'
+    input_file = script_dir / ".." / ".." / "data" / "user.json"
+    input_file = input_file.resolve()  # optional: get absolute path
 
-    # Input JSON file (same folder as script)
-    input_file = script_dir / "user.json"
     if not input_file.exists():
         print(f"❌ Input file not found: {input_file}")
         sys.exit(1)
@@ -235,13 +234,14 @@ def main():
         print(f"❌ Error reading input file: {e}")
         sys.exit(1)
 
-    # Output file in '../../data/'
+    # Output file in the same folder
     output_dir = script_dir / ".." / ".." / "data"
     output_dir.mkdir(parents=True, exist_ok=True)
     output_file = output_dir / "meal_plan.json"
 
     # Generate meal plan
     print(f"\nGenerating meal plan for user: {user_data.get('user_id', 'Unknown')}")
+    predictor = MealPredictor(model_dir=script_dir)
     meal_plan = predictor.predict_meals(user_data, show_alternatives=True)
 
     if meal_plan:
@@ -252,7 +252,6 @@ def main():
     else:
         print("❌ Failed to generate meal plan")
         sys.exit(1)
-
 
 if __name__ == "__main__":
     main()
