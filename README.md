@@ -1,5 +1,4 @@
-VIDEO DEMO : https://drive.google.com/file/d/1oVrhzNU4x1WAlrAfJtmd057GT9sPLTx8/view?usp=drive_link
-
+VIDEO DEMO : https://drive.google.com/file/d/1oVrhzNU4x1WAlrAfJtmd057GT9sPLTx8/view?usp=sharing
 
 # Healthcast 🎧🏋️‍♀️🍎  
 
