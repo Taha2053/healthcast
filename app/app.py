@@ -10,7 +10,7 @@ sys.path.append(PROJECT_ROOT)
 # Import pipeline functions
 from src.generator.planner_pipeline import generate_weekly_markdown
 from src.generator.podcast_script import generate_motivational_script
-from src.audio.podcast_pipeline import run_pipeline
+from src.audio.podcast_pipeline import run_pipeline, run_pipeline_murf
 
 # -----------------------------
 # Paths
@@ -66,7 +66,7 @@ if uploaded_file:
 
     # --- Step 3: Podcast Audio ---
     try:
-        run_pipeline(md_file_path=MOTIVATIONAL_MD, audio_output_path=PODCAST_MP3)
+        run_pipeline_murf(md_file_path=MOTIVATIONAL_MD, audio_output_path=PODCAST_MP3)
         st.success("✅ Podcast audio generated!")
 
         if os.path.exists(PODCAST_MP3):

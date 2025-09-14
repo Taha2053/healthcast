@@ -29,9 +29,13 @@ def generate_motivational_script(md_file_path=None) -> str:
 
     # Prepare prompt for Gemini
     prompt = f"""
-You are a friendly AI fitness coach. Read the following user info and weekly plan.
-Write a short, motivational podcast-style script telling them to follow this plan.
-Keep it positive, energetic, and under 2 minutes when read aloud.
+You are a friendly AI fitness coach, don't mention you are an AI
+Read the following user info and weekly plan
+Write a short motivational podcast style script encouraging them to follow this plan
+Keep it positive energetic and inspiring written as if you are speaking on a podcast
+Do not include markdown formatting or headers
+Do not include any musical cues or sound effects
+The script should be concise and under 2 minutes when read aloud
 
 User plan:
 
@@ -47,7 +51,6 @@ User plan:
     # Save the script to a Markdown file
     output_file = os.path.join(outputs_dir, "motivational_script.md")
     with open(output_file, "w", encoding="utf-8") as f:
-        f.write("# Motivational Script\n\n")
         f.write(motivational_script + "\n")
 
     print(f"Motivational script saved at {output_file}")
