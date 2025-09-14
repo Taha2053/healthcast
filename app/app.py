@@ -18,8 +18,6 @@ from src.nutritions_model.predict_meals import MealPredictor
 from src.generator.planner_pipeline import generate_weekly_markdown
 from src.generator.podcast_script import generate_motivational_script
 from src.audio.podcast_pipeline_murf import run_pipeline_murf
-from src.audio.podcast_pipeline import run_pipeline
-
 
 # -----------------------------
 # Paths

@@ -1,81 +1,90 @@
-    import os
-    import sys
-    import json
-    import logging
-    from pathlib import Path
+import os
+import sys
+import importlib.util
 
-    # Configure logging
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-    logger = logging.getLogger(__name__)
+# -----------------------------
+# Paths
+# -----------------------------
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.append(PROJECT_ROOT)
 
-    # Add project root to sys.path
-    PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-    sys.path.append(PROJECT_ROOT)
+DATA_DIR = os.path.join(PROJECT_ROOT, "data")
+OUTPUTS_DIR = os.path.join(PROJECT_ROOT, "outputs")
 
-    # Import required modules
-    from src.extractions.fitness_extractor import extract_fitness_profile
-    from src.nutritions_model.predict_meals import MealPredictor
-    from src.generator.planner_pipeline import generate_weekly_markdown
-    from src.generator.podcast_script import generate_motivational_script
-    from src.audio.podcast_pipeline_murf import run_pipeline_murf
+os.makedirs(DATA_DIR, exist_ok=True)
+os.makedirs(OUTPUTS_DIR, exist_ok=True)
 
-    # Define paths
-    DATA_DIR = os.path.join(PROJECT_ROOT, "data")
-    OUTPUT_DIR = os.path.join(PROJECT_ROOT, "app", "outputs")
-
-    # Ensure output directory exists
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
-
-    def run_healthcast_pipeline():
-        """
-        Automates the entire healthcast pipeline from fitness extraction to podcast generation.
-        """
-        try:
-            # 1. Extract fitness profile
-            logger.info("Extracting fitness profile...")
-            fitness_profile_path = os.path.join(DATA_DIR, "user_data.json")
-            extract_fitness_profile()
-            
-            # 2. Generate meal plan
-            logger.info("Generating meal plan...")
-            meal_predictor = MealPredictor()
-            with open(fitness_profile_path, 'r') as f:
-                user_data = json.load(f)
-                meal_plan = meal_predictor.predict_meals(user_data)
-            
-            meal_plan_path = os.path.join(DATA_DIR, "meal_plan.json")
-
-            plan_output_path = os.path.join(OUTPUT_DIR, "comprehensive_plan.md")
-
-            generate_weekly_markdown(user_input=fitness_profile)
+WORKOUT_PLAN_PATH = os.path.join(DATA_DIR, "workout_plan.json")
 
 
-            # 3. Generate workout and nutrition plan markdown
-            logger.info("Generating comprehensive plan...")
-            workout_plan_path = os.path.join(DATA_DIR, "workout_plan.json")
-            plan_output_path = os.path.join(OUTPUT_DIR, "comprehensive_plan.md")
-            generate_weekly_markdown(fitness_profile_path, meal_plan_path, workout_plan_path, plan_output_path)
-            
-            # 4. Generate motivational script
-            logger.info("Generating motivational script...")
-            motivational_script_path = os.path.join(OUTPUT_DIR, "motivational_script.md")
-            generate_motivational_script(plan_output_path, motivational_script_path)
-            
-            # 5. Generate podcast audio
-            logger.info("Generating podcast audio...")
-            podcast_output_path = os.path.join(OUTPUT_DIR, "podcast.mp3")
-            run_pipeline_murf(motivational_script_path, podcast_output_path)
-            
-            logger.info("Pipeline completed successfully!")
-            return True
-            
-        except Exception as e:
-            logger.error(f"Pipeline failed: {str(e)}")
-            raise
+# -----------------------------
+# Helper: dynamic import
+# -----------------------------
+def dynamic_import(module_path, func_name):
+    spec = importlib.util.spec_from_file_location("module.name", module_path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return getattr(module, func_name)
 
-    if __name__ == "__main__":
-        try:
-            run_healthcast_pipeline()
-        except Exception as e:
-            logger.error(f"Pipeline execution failed: {str(e)}")
-            sys.exit(1)
+
+# -----------------------------
+# Main pipeline
+# -----------------------------
+def run_full_pipeline(user_input_text: str):
+    # 1️⃣ Run fitness_extractor
+    fitness_extractor_path = os.path.join(PROJECT_ROOT, "src/extractions/fitness_extractor.py")
+    extract_fitness_profile = dynamic_import(fitness_extractor_path, "extract_fitness_profile")
+    fitness_profile_path = os.path.join(DATA_DIR, "fitness_profile.json")
+    print("Extracting fitness profile...")
+    extract_fitness_profile(user_input_text, output_path=fitness_profile_path)
+
+    # 2️⃣ Run MealPredictor from predict_meals.py
+    predict_meals_path = os.path.join(PROJECT_ROOT, "src/nutritions_model/predict_meals.py")
+    MealPredictor = dynamic_import(predict_meals_path, "MealPredictor")
+
+    # Correct folder where your .pkl models live
+    meal_models_dir = os.path.join(PROJECT_ROOT, "src", "nutritions_model")
+
+    meal_plan_path = os.path.join(DATA_DIR, "meal_plan.json")
+    print("Generating meal plan...")
+
+    # Pass the correct model_dir
+    meal_predictor = MealPredictor(model_dir=meal_models_dir)
+
+    # Use predict_from_json to generate the meal plan JSON
+    meal_predictor.predict_from_json(fitness_profile_path, output_file=meal_plan_path)
+
+    # 3️⃣ Generate weekly markdown plan
+    planner_pipeline_path = os.path.join(PROJECT_ROOT, "src/generator/planner_pipeline.py")
+    generate_weekly_markdown = dynamic_import(planner_pipeline_path, "generate_weekly_markdown")
+    md_plan_path = os.path.join(OUTPUTS_DIR, "weekly_plan.md")
+    print("Generating weekly markdown plan...")
+    generate_weekly_markdown(
+        workout_path=WORKOUT_PLAN_PATH,
+        fitness_path=fitness_profile_path,
+        meals_path=meal_plan_path,
+        output_md_path=md_plan_path
+    )
+
+    # 4️⃣ Generate motivational script
+    podcast_script_path = os.path.join(PROJECT_ROOT, "src/generator/podcast_script.py")
+    generate_motivational_script = dynamic_import(podcast_script_path, "generate_motivational_script")
+    md_podcast_path = os.path.join(OUTPUTS_DIR, "motivational_script.md")
+    print("Generating motivational script...")
+    generate_motivational_script(md_file_path=md_plan_path, output_md_path=md_podcast_path)
+
+    # 5️⃣ Generate podcast audio
+    podcast_pipeline_path = os.path.join(PROJECT_ROOT, "src/audio/podcast_pipeline.py")
+    run_pipeline = dynamic_import(podcast_pipeline_path, "run_pipeline")
+    print("Generating podcast audio...")
+    run_pipeline(md_podcast_path, output_dir=OUTPUTS_DIR)
+
+    print("✅ Pipeline completed successfully!")
+
+
+# -----------------------------
+# Run example
+# -----------------------------
+if __name__ == "__main__":
+    user_input_text = input("Enter your fitness goals or weekly plan: ")
+    run_full_pipeline(user_input_text)
