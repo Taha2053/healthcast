@@ -258,6 +258,43 @@ class FitnessProfileExtractor:
 
 # ------------------ Main ------------------
 
+def extract_fitness_profile(paragraph: str, output_path: str):
+    extractor = FitnessProfileExtractor()
+    profile_obj = extractor.extract(paragraph)
+    profile_dict = profile_obj.to_dict()
+
+    # Ensure consistent keys
+    all_keys = [
+        "age", "gender", "weight", "height", "bmi", "bmi_category",
+        "fitness_level", "activity_level", "goals",
+        "nutrition_preferences", "schedule_preferences",
+        "medical_conditions", "equipment_available"
+    ]
+    for key in all_keys:
+        if key not in profile_dict:
+            profile_dict[key] = None if key not in ["medical_conditions", "equipment_available", "goals"] else []
+
+    # Append to JSON file
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    if os.path.exists(output_path):
+        with open(output_path, "r", encoding="utf-8") as f:
+            existing_profiles = json.load(f)
+        # 🔥 FIX: ensure it's a list
+        if isinstance(existing_profiles, dict):
+            existing_profiles = [existing_profiles]
+    else:
+        existing_profiles = []
+
+    existing_profiles.append(profile_dict)
+
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(existing_profiles, f, indent=2, ensure_ascii=False)
+
+    return profile_dict
+
+
+
+
 def main():
     extractor = FitnessProfileExtractor()
 

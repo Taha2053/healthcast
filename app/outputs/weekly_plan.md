@@ -4,7 +4,20 @@ Your goal(s): **muscle building, weight loss**, and your schedule preference: **
 Based on your nutrition habits (no specific nutrition preferences), here is your personalized plan.
 Follow this plan consistently for the best results!
 
-### Nutrition Plan
+### Suggested Workout Plan
+
+| Day | Workout |
+|---|---|
+| Monday | Day 1: HIIT |
+| Tuesday | Day 2: Full Body |
+| Wednesday | Day 3: Cardio |
+| Thursday | Day 4: Upper Body |
+| Friday | Day 5: Lower Body |
+| Saturday | Day 6: Cardio |
+| Sunday | Day 7: Rest |
+
+
+### Suggested Nutrition Plan
 
 ### Breakfast
 

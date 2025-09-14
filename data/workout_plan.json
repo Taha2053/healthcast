@@ -1,0 +1,18 @@
+{
+  "gender": "male",
+  "age": 22,
+  "height": 175,
+  "weight": 70,
+  "schedule": "6pm weekdays + weekends",
+  "nutrition": "low protein, high carbs",
+  "goal": "weight_loss",
+  "workouts": [
+    "Day 1: HIIT",
+    "Day 2: Full Body",
+    "Day 3: Cardio",
+    "Day 4: Upper Body",
+    "Day 5: Lower Body",
+    "Day 6: Cardio",
+    "Day 7: Rest"
+  ]
+}

@@ -1,21 +1,9 @@
-# Motivational Script
+Hey there and welcome to your weekly power-up! I am so fired up for you today because I'm looking at this incredible plan you've got laid out, and wow, you are absolutely set up for success.
 
-*(Upbeat, energetic intro music starts and fades to the background)*
+You've got these amazing goals of building muscle and losing weight, and this week is your launchpad. We're kicking things off with a bang with that HIIT session – think of it as lighting a fire under your metabolism for the whole week! Then you're moving into those incredible strength days. Full body, upper, and lower body workouts... this is where you're going to sculpt that strong, powerful physique you're working towards. We've even got cardio in there to keep your heart healthy and your energy soaring. And that rest day on Sunday? That is not a day off, that is a day ON for recovery, which is where the real magic happens.
 
-Hey! What is UP, champ! It’s your friendly AI coach, and I am absolutely fired up looking at your plan for the week. You’re 22, you’re ready to build some serious muscle, and this is the roadmap to get it done. Let’s go!
+Now, let's talk about fuel, because you can't out-train a bad diet! This nutrition plan is designed to power every single one of those workouts. That delicious oatmeal for breakfast, that protein-packed chicken for lunch, that amazing salmon for dinner... this isn't about restriction, this is about nourishing your body so it can perform at its absolute best. And look at all those alternatives! You have so much flexibility to keep things fresh and exciting.
 
-First up: your workouts. That 6pm slot is perfect. You get to shake off the day and channel all that energy into building a stronger you. We’re on a killer Push-Pull-Legs split this week.
+Remember, the workouts build the muscle, and the food fuels the build. They work together as the ultimate power couple to get you exactly where you want to be.
 
-Monday, we kick things off with a powerful **Push Day**. Think chest, shoulders, triceps—we're building that armor. Tuesday, it’s **Pull Day**, where we carve out that back and build those biceps. Wednesday… you know what it is. **LEG DAY!** We don’t skip leg day; we build a foundation of strength.
-
-Then we run it right back! Thursday and Friday are another round of Push and Pull to really maximize that muscle growth. On Saturday, we switch gears and torch calories with some high-intensity **HIIT** training to keep you lean and athletic.
-
-And Sunday? We rest. That is just as important as the lifts, my friend. That is when your body rebuilds and grows stronger.
-
-Now, let's talk fuel, because you can't build a house without bricks! We’re kicking those low-protein habits to the curb. Your nutrition plan is simple and packed with power. We're talking oats and eggs, chicken and rice, fish and quinoa. Each day is centered around high-quality protein to repair and build the muscle you're working so hard for in the gym.
-
-This is your blueprint for success. The plan is here. All you have to do is show up, put in the work, and fuel your body right. Be consistent, trust the process, and watch the results happen.
-
-You’ve got this. Now let’s have an amazing week. Go crush it!
-
-*(Upbeat, energetic music swells and fades out)*
+So take a deep breath. Look at this plan not as a chore, but as a promise you are making to yourself. You are strong, you are capable, and you are about to crush this week. One workout, one meal, one day at a time. Let's do this

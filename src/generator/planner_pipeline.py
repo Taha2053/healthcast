@@ -15,11 +15,14 @@ else:
     input_json = os.path.join(script_dir, "..", "..", "data", "user_data.json")
     meal_plan_json= os.path.join(script_dir, "..", "..", "data", "meal_plan.json")
     fitness_profile_json= os.path.join(script_dir, "..", "..", "data", "fitness_profiles.json")
+    workout_plan_json= os.path.join(script_dir, "..", "..", "data", "workout_plan.json")
     with open(fitness_profile_json, "r", encoding="utf-8") as f:
         fitness_profiles = json.load(f)   
     with open(meal_plan_json, "r", encoding="utf-8") as f:
         meal_plans = json.load(f)       
     output_dir = os.path.join(script_dir, "..", "..", "app", "outputs")
+    with open(workout_plan_json, "r", encoding="utf-8") as f:
+        workout_plans = json.load(f)
 
 os.makedirs(output_dir, exist_ok=True)
 
@@ -27,16 +30,7 @@ os.makedirs(output_dir, exist_ok=True)
 with open(input_json, "r", encoding="utf-8") as f:
     user_data = json.load(f)
 
-
-# def generate_user_summary(user):
-#     """Create a short message summarizing the user's info."""
-#     summary = (
-#         f"Hello {user['gender']} aged {user['age']}!\n\n"
-#         f"Your goal is **{user['goal']}**, and your schedule is **{user['schedule']}**.\n"
-#         f"Based on your nutrition habits ({user['nutrition']}), here is your personalized plan.\n"
-#         "Follow this plan consistently for the best results!"
-#     )
-#     return summary  
+######USER SUMMARY
 
 def generate_user_summary(user):
     """Create a short message summarizing the user's info."""
@@ -69,13 +63,18 @@ def generate_user_summary(user):
 
 
 def generate_workout_markdown(user):
-    """Generate a Markdown table for the workout plan."""
+    """Generate a Markdown table for the 7-day workout plan."""
     days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+    workouts = user.get("workouts", [])
+    if not workouts:
+        workouts = ["Rest"] * 7 
+
     md = "| Day | Workout |\n|---|---|\n"
     for i, day in enumerate(days):
-        workout = user["workouts"][i % len(user["workouts"])]
-        md += f"| {day} | {workout} |\n"
+        md += f"| {day} | {workouts[i % len(workouts)]} |\n"
     return md
+
 
 
 def generate_nutrition_markdown(user):
@@ -166,15 +165,19 @@ def generate_weekly_markdown(user_input=None):
     """
     profile = user_input if user_input else fitness_profiles[0]
     meal_plan = meal_plans  # use loaded meal_plan data
+    workout_plan= workout_plans
 
     summary_text = generate_user_summary(profile)
     nutrition_md = generate_nutrition_markdown(meal_plan)
+    workout_md = generate_workout_markdown(workout_plan)
 
     output_file = os.path.join(output_dir, "weekly_plan.md")
 
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(summary_text + "\n\n")
-        f.write("### Nutrition Plan\n\n")
+        f.write("### Suggested Workout Plan\n\n")
+        f.write(workout_md + "\n\n")    
+        f.write("### Suggested Nutrition Plan\n\n")
         f.write(nutrition_md + "\n")
 
     print(f"Weekly plan saved successfully at {output_file}")
