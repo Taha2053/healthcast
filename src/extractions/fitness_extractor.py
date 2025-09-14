@@ -9,6 +9,17 @@ from abc import ABC, abstractmethod
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+import re
+import json
+import logging
+from dataclasses import dataclass, asdict, field
+from typing import Optional, List, Dict, Any, Union
+from enum import Enum
+from abc import ABC, abstractmethod
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 class FitnessLevel(Enum):
     BEGINNER = "beginner"
@@ -250,7 +261,7 @@ def main():
     extractor = FitnessProfileExtractor()
     test_cases = [
         "Hi! I am a 22 year old female. My weight is 68 kg and my height is 175 cm. I am a beginner and very active. My goals are weight loss and muscle building.",
-        "Male, 30 yrs old, weigh 180 pounds, 5'9\" tall, intermediate fitness level, moderately active, goal: endurance and strength",
+        "Male, 30 yrs old, weigh 180 pounds, 5'9 tall, intermediate fitness level, moderately active, goal: endurance and strength",
         "I'm a 40 years old woman, 60kg, 165cm, advanced level, lightly active, want flexibility and fat loss",
         "25yo man, 1.80m tall, 75kg, beginner, sedentary, want to get fit and build muscle",
         "Female, age 35, 5 ft 6 in, 140 lbs, very active, intermediate, goals: general fitness"
