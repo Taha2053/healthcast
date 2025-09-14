@@ -2,43 +2,43 @@
   "meal_plan": [
     {
       "meal": "breakfast",
-      "recommended": "Eggs",
+      "recommended": "Oatmeal",
       "foods": [
         {
-          "food": "Eggs",
-          "amount": "2 pieces"
+          "food": "Oatmeal",
+          "amount": "50g"
         },
         {
-          "food": "Toast",
-          "amount": "2 slices"
+          "food": "Banana",
+          "amount": "1 piece"
         },
         {
-          "food": "Orange Juice",
-          "amount": "250ml"
+          "food": "Milk",
+          "amount": "200ml"
         }
       ],
       "alternatives": [
         {
-          "dish": "Oatmeal",
-          "confidence": "38.67%",
+          "dish": "Eggs",
+          "confidence": "40.55%",
           "foods": [
             {
-              "food": "Oatmeal",
-              "amount": "50g"
+              "food": "Eggs",
+              "amount": "2 pieces"
             },
             {
-              "food": "Banana",
-              "amount": "1 piece"
+              "food": "Toast",
+              "amount": "2 slices"
             },
             {
-              "food": "Milk",
-              "amount": "200ml"
+              "food": "Orange Juice",
+              "amount": "250ml"
             }
           ]
         },
         {
           "dish": "Smoothie",
-          "confidence": "19.53%",
+          "confidence": "18.91%",
           "foods": [
             {
               "food": "Smoothie",
@@ -51,7 +51,7 @@
           ]
         }
       ],
-      "main_confidence": "41.80%"
+      "main_confidence": "40.55%"
     },
     {
       "meal": "lunch",
@@ -72,26 +72,8 @@
       ],
       "alternatives": [
         {
-          "dish": "Pasta",
-          "confidence": "20.54%",
-          "foods": [
-            {
-              "food": "Pasta",
-              "amount": "120g"
-            },
-            {
-              "food": "Tomato Sauce",
-              "amount": "80g"
-            },
-            {
-              "food": "Parmesan",
-              "amount": "20g"
-            }
-          ]
-        },
-        {
           "dish": "Rice & Beans",
-          "confidence": "19.93%",
+          "confidence": "20.28%",
           "foods": [
             {
               "food": "Rice",
@@ -108,8 +90,26 @@
           ]
         },
         {
+          "dish": "Pasta",
+          "confidence": "20.08%",
+          "foods": [
+            {
+              "food": "Pasta",
+              "amount": "120g"
+            },
+            {
+              "food": "Tomato Sauce",
+              "amount": "80g"
+            },
+            {
+              "food": "Parmesan",
+              "amount": "20g"
+            }
+          ]
+        },
+        {
           "dish": "Grilled Fish",
-          "confidence": "18.39%",
+          "confidence": "17.53%",
           "foods": [
             {
               "food": "Fish",
@@ -126,7 +126,7 @@
           ]
         }
       ],
-      "main_confidence": "41.14%"
+      "main_confidence": "42.10%"
     },
     {
       "meal": "dinner",
@@ -148,7 +148,7 @@
       "alternatives": [
         {
           "dish": "Vegetable Soup",
-          "confidence": "19.46%",
+          "confidence": "18.88%",
           "foods": [
             {
               "food": "Soup",
@@ -161,26 +161,8 @@
           ]
         },
         {
-          "dish": "Chicken Wrap",
-          "confidence": "19.29%",
-          "foods": [
-            {
-              "food": "Chicken",
-              "amount": "100g"
-            },
-            {
-              "food": "Tortilla",
-              "amount": "1 piece"
-            },
-            {
-              "food": "Lettuce",
-              "amount": "40g"
-            }
-          ]
-        },
-        {
           "dish": "Steak",
-          "confidence": "18.11%",
+          "confidence": "18.71%",
           "foods": [
             {
               "food": "Steak",
@@ -195,9 +177,27 @@
               "amount": "70g"
             }
           ]
+        },
+        {
+          "dish": "Chicken Wrap",
+          "confidence": "18.32%",
+          "foods": [
+            {
+              "food": "Chicken",
+              "amount": "100g"
+            },
+            {
+              "food": "Tortilla",
+              "amount": "1 piece"
+            },
+            {
+              "food": "Lettuce",
+              "amount": "40g"
+            }
+          ]
         }
       ],
-      "main_confidence": "43.14%"
+      "main_confidence": "44.08%"
     }
   ]
 }

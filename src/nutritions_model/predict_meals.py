@@ -214,71 +214,45 @@ class MealPredictor:
         return meal_plan
 
 def main():
-    parser = argparse.ArgumentParser(description='Generate personalized meal plans using trained ML models')
-    parser.add_argument('--input', '-i', type=str, help='Input JSON file with user data')
-    parser.add_argument('--output', '-o', type=str, help='Output JSON file for meal plan')
-    parser.add_argument('--model-dir', '-m', type=str, default='./', help='Directory containing model files')
-    parser.add_argument('--json-string', '-j', type=str, help='JSON string with user data')
-    parser.add_argument('--no-alternatives', action='store_true', help='Skip alternative meal suggestions')
-    
-    args = parser.parse_args()
-    
-    # Initialize predictor
-    predictor = MealPredictor(model_dir=args.model_dir)
-    
-    user_data = None
-    
-    # Get user data from file or string
-    if args.input:
-        try:
-            with open(args.input, 'r') as f:
-                user_data = json.load(f)
-            print(f"✓ Loaded user data from: {args.input}")
-        except Exception as e:
-            print(f"❌ Error reading input file: {e}")
-            sys.exit(1)
-    elif args.json_string:
-        try:
-            user_data = json.loads(args.json_string)
-            print("✓ Loaded user data from JSON string")
-        except json.JSONDecodeError as e:
-            print(f"❌ Error parsing JSON string: {e}")
-            sys.exit(1)
-    else:
-        # Interactive mode - example user
-        print("No input provided. Using example user data...")
-        user_data = {
-            "user_id": "example_user",
-            "age": 25,
-            "weight": 68,
-            "height": 170,
-            "bmi": 23.5,
-            "fitness_level": "intermediate",
-            "goals": "muscle_gain",
-            "gender": "female",
-            "activity_level": "high"
-        }
-    
+    # Get the directory where this script is located
+    script_dir = Path(__file__).parent
+
+    # Initialize predictor with the script's folder as model_dir
+    predictor = MealPredictor(model_dir=script_dir)
+
+    # Input JSON file (same folder as script)
+    input_file = script_dir / "user.json"
+    if not input_file.exists():
+        print(f"❌ Input file not found: {input_file}")
+        sys.exit(1)
+
+    # Load user data
+    try:
+        with open(input_file, 'r') as f:
+            user_data = json.load(f)
+        print(f"✓ Loaded user data from: {input_file}")
+    except Exception as e:
+        print(f"❌ Error reading input file: {e}")
+        sys.exit(1)
+
+    # Output file in '../../data/'
+    output_dir = script_dir / ".." / ".." / "data"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    output_file = output_dir / "meal_plan.json"
+
     # Generate meal plan
     print(f"\nGenerating meal plan for user: {user_data.get('user_id', 'Unknown')}")
-    meal_plan = predictor.predict_meals(user_data, show_alternatives=not args.no_alternatives)
-    
+    meal_plan = predictor.predict_meals(user_data, show_alternatives=True)
+
     if meal_plan:
         # Save to output file
-        output_file = args.output or "meal_plan.json"
         with open(output_file, 'w') as f:
             json.dump(meal_plan, f, indent=2)
-        
-        print(f"Meal plan generated and saved to: {output_file}")
-        
-        # Print summary
-        print(f"\nMeal Plan Summary:")
-        for meal in meal_plan["meal_plan"]:
-            confidence = meal.get('main_confidence', 'N/A')
-            print(f"  {meal['meal'].capitalize()}: {meal['recommended']} (confidence: {confidence})")
+        print(f"✓ Meal plan generated and saved to: {output_file}")
     else:
-        print("Failed to generate meal plan")
+        print("❌ Failed to generate meal plan")
         sys.exit(1)
+
 
 if __name__ == "__main__":
     main()

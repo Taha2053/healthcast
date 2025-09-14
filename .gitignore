@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 
 tree_structure.py
+.pkl
 
 # C extensions
 *.so

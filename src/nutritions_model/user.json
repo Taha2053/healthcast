@@ -1,0 +1,11 @@
+{
+  "user_id": "taha",
+  "age": 22,
+  "weight": 65,
+  "height": 175,
+  "bmi": 21.2,
+  "fitness_level": "beginner",
+  "goals": "weight_loss",
+  "gender": "male",
+  "activity_level": "moderate"
+}

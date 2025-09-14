@@ -1,27 +1,203 @@
-[
-  {
-    "gender": "male",
-    "age": 22,
-    "height": 175,
-    "weight": 70,
-    "schedule": "6pm weekdays + weekends",
-    "nutrition": "low protein, high carbs",
-    "goal": "muscle gain",
-    "meals": [
-      "Oats + eggs",
-      "Chicken + rice",
-      "Protein shake",
-      "Salad",
-      "Fish + quinoa"
-    ],
-    "workouts": [
-      "Day 1: Push",
-      "Day 2: Pull",
-      "Day 3: Legs",
-      "Day 4: Push",
-      "Day 5: Pull",
-      "Day 6: HIIT",
-      "Day 7: Rest"
-    ]
-  }
-]
+{
+  "meal_plan": [
+    {
+      "meal": "breakfast",
+      "recommended": "Oatmeal",
+      "foods": [
+        {
+          "food": "Oatmeal",
+          "amount": "50g"
+        },
+        {
+          "food": "Banana",
+          "amount": "1 piece"
+        },
+        {
+          "food": "Milk",
+          "amount": "200ml"
+        }
+      ],
+      "alternatives": [
+        {
+          "dish": "Eggs",
+          "confidence": "40.55%",
+          "foods": [
+            {
+              "food": "Eggs",
+              "amount": "2 pieces"
+            },
+            {
+              "food": "Toast",
+              "amount": "2 slices"
+            },
+            {
+              "food": "Orange Juice",
+              "amount": "250ml"
+            }
+          ]
+        },
+        {
+          "dish": "Smoothie",
+          "confidence": "18.91%",
+          "foods": [
+            {
+              "food": "Smoothie",
+              "amount": "300ml"
+            },
+            {
+              "food": "Granola",
+              "amount": "30g"
+            }
+          ]
+        }
+      ],
+      "main_confidence": "40.55%"
+    },
+    {
+      "meal": "lunch",
+      "recommended": "Chicken Salad",
+      "foods": [
+        {
+          "food": "Chicken Breast",
+          "amount": "120g"
+        },
+        {
+          "food": "Lettuce",
+          "amount": "50g"
+        },
+        {
+          "food": "Olive Oil",
+          "amount": "10ml"
+        }
+      ],
+      "alternatives": [
+        {
+          "dish": "Rice & Beans",
+          "confidence": "20.28%",
+          "foods": [
+            {
+              "food": "Rice",
+              "amount": "100g"
+            },
+            {
+              "food": "Beans",
+              "amount": "80g"
+            },
+            {
+              "food": "Avocado",
+              "amount": "50g"
+            }
+          ]
+        },
+        {
+          "dish": "Pasta",
+          "confidence": "20.08%",
+          "foods": [
+            {
+              "food": "Pasta",
+              "amount": "120g"
+            },
+            {
+              "food": "Tomato Sauce",
+              "amount": "80g"
+            },
+            {
+              "food": "Parmesan",
+              "amount": "20g"
+            }
+          ]
+        },
+        {
+          "dish": "Grilled Fish",
+          "confidence": "17.53%",
+          "foods": [
+            {
+              "food": "Fish",
+              "amount": "150g"
+            },
+            {
+              "food": "Quinoa",
+              "amount": "100g"
+            },
+            {
+              "food": "Spinach",
+              "amount": "60g"
+            }
+          ]
+        }
+      ],
+      "main_confidence": "42.10%"
+    },
+    {
+      "meal": "dinner",
+      "recommended": "Grilled Salmon",
+      "foods": [
+        {
+          "food": "Salmon",
+          "amount": "150g"
+        },
+        {
+          "food": "Asparagus",
+          "amount": "80g"
+        },
+        {
+          "food": "Sweet Potato",
+          "amount": "100g"
+        }
+      ],
+      "alternatives": [
+        {
+          "dish": "Vegetable Soup",
+          "confidence": "18.88%",
+          "foods": [
+            {
+              "food": "Soup",
+              "amount": "300ml"
+            },
+            {
+              "food": "Bread",
+              "amount": "1 slice"
+            }
+          ]
+        },
+        {
+          "dish": "Steak",
+          "confidence": "18.71%",
+          "foods": [
+            {
+              "food": "Steak",
+              "amount": "180g"
+            },
+            {
+              "food": "Mashed Potatoes",
+              "amount": "100g"
+            },
+            {
+              "food": "Green Beans",
+              "amount": "70g"
+            }
+          ]
+        },
+        {
+          "dish": "Chicken Wrap",
+          "confidence": "18.32%",
+          "foods": [
+            {
+              "food": "Chicken",
+              "amount": "100g"
+            },
+            {
+              "food": "Tortilla",
+              "amount": "1 piece"
+            },
+            {
+              "food": "Lettuce",
+              "amount": "40g"
+            }
+          ]
+        }
+      ],
+      "main_confidence": "44.08%"
+    }
+  ]
+}

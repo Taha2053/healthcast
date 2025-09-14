@@ -1,31 +1,42 @@
-Hello male aged 22!
-
-Your goal is **muscle gain**, and your schedule is **6pm weekdays + weekends**.
-Based on your nutrition habits (low protein, high carbs), here is your personalized plan.
-Follow this plan consistently for the best results!
-
-### Workout Plan
-
-| Day | Workout |
-|---|---|
-| Monday | Day 1: Push |
-| Tuesday | Day 2: Pull |
-| Wednesday | Day 3: Legs |
-| Thursday | Day 4: Push |
-| Friday | Day 5: Pull |
-| Saturday | Day 6: HIIT |
-| Sunday | Day 7: Rest |
-
-
 ### Nutrition Plan
 
-| Day | Meals |
-|---|---|
-| Monday | Oats + eggs |
-| Tuesday | Chicken + rice |
-| Wednesday | Protein shake |
-| Thursday | Salad |
-| Friday | Fish + quinoa |
-| Saturday | Oats + eggs |
-| Sunday | Chicken + rice |
+### Breakfast
 
+**Recommended:**
+
+- Oatmeal (50g)
+- Banana (1 piece)
+- Milk (200ml)
+
+**Alternatives:**
+
+- Eggs: Eggs (2 pieces), Toast (2 slices), Orange Juice (250ml)
+- Smoothie: Smoothie (300ml), Granola (30g)
+
+### Lunch
+
+**Recommended:**
+
+- Chicken Breast (120g)
+- Lettuce (50g)
+- Olive Oil (10ml)
+
+**Alternatives:**
+
+- Rice & Beans: Rice (100g), Beans (80g), Avocado (50g)
+- Pasta: Pasta (120g), Tomato Sauce (80g), Parmesan (20g)
+- Grilled Fish: Fish (150g), Quinoa (100g), Spinach (60g)
+
+### Dinner
+
+**Recommended:**
+
+- Salmon (150g)
+- Asparagus (80g)
+- Sweet Potato (100g)
+
+**Alternatives:**
+
+- Vegetable Soup: Soup (300ml), Bread (1 slice)
+- Steak: Steak (180g), Mashed Potatoes (100g), Green Beans (70g)
+- Chicken Wrap: Chicken (100g), Tortilla (1 piece), Lettuce (40g)

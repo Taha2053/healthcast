@@ -44,33 +44,70 @@ def generate_workout_markdown(user):
 
 
 def generate_nutrition_markdown(user):
-    """Generate a Markdown table for the nutrition plan."""
-    days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-    md = "| Day | Meals |\n|---|---|\n"
-    for i, day in enumerate(days):
-        meal = user["meals"][i % len(user["meals"])]
-        md += f"| {day} | {meal} |\n"
+    """Generate a Markdown table for the nutrition plan from the JSON meal_plan."""
+    md = ""
+    for meal in user["meal_plan"]:
+        md += f"### {meal['meal'].capitalize()}\n\n"
+        md += "**Recommended:**\n"
+        for food in meal["foods"]:
+            md += f"- {food['food']} ({food['amount']})\n"
+        if meal.get("alternatives"):
+            md += "\n**Alternatives:**\n"
+            for alt in meal["alternatives"]:
+                md += f"- {alt['dish']}: "
+                md += ", ".join([f"{f['food']} ({f['amount']})" for f in alt["foods"]])
+                md += "\n"
+        md += "\n"
     return md
+
+
+
+
+
+# def generate_weekly_markdown(user_input=None):
+#     """
+#     Generate weekly plan Markdown.
+#     - If `user_input` is provided, use it.
+#     - Otherwise, use the first user from user_data.json.
+#     """
+#     user = user_input if user_input else user_data[0]
+
+#     summary_text = generate_user_summary(user)
+#     workout_md = generate_workout_markdown(user)
+#     nutrition_md = generate_nutrition_markdown(user)
+
+#     output_file = os.path.join(output_dir, "weekly_plan.md")
+
+#     with open(output_file, "w", encoding="utf-8") as f:
+#         f.write(summary_text + "\n\n")
+#         f.write("### Workout Plan\n\n")
+#         f.write(workout_md + "\n\n")
+#         f.write("### Nutrition Plan\n\n")
+#         f.write(nutrition_md + "\n")
+
+#     print(f"Weekly plan saved successfully at {output_file}")
+#     return output_file
+
 
 
 def generate_weekly_markdown(user_input=None):
     """
     Generate weekly plan Markdown.
     - If `user_input` is provided, use it.
-    - Otherwise, use the first user from user_data.json.
+    - Otherwise, use user_data directly (assumes it's a dict)
     """
-    user = user_input if user_input else user_data[0]
+    user = user_input if user_input else user_data  # <-- no [0] indexing
 
-    summary_text = generate_user_summary(user)
-    workout_md = generate_workout_markdown(user)
+    # summary_text = generate_user_summary(user)
+    # workout_md = generate_workout_markdown(user)
     nutrition_md = generate_nutrition_markdown(user)
 
     output_file = os.path.join(output_dir, "weekly_plan.md")
 
     with open(output_file, "w", encoding="utf-8") as f:
-        f.write(summary_text + "\n\n")
-        f.write("### Workout Plan\n\n")
-        f.write(workout_md + "\n\n")
+        # f.write(summary_text + "\n\n")
+        # f.write("### Workout Plan\n\n")
+        # f.write(workout_md + "\n\n")
         f.write("### Nutrition Plan\n\n")
         f.write(nutrition_md + "\n")
 
