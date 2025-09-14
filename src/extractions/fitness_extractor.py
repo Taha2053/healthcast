@@ -5,6 +5,7 @@ from dataclasses import dataclass, asdict, field
 from typing import Optional, List, Dict, Any, Union
 from enum import Enum
 from abc import ABC, abstractmethod
+import os
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -259,34 +260,48 @@ class FitnessProfileExtractor:
 
 def main():
     extractor = FitnessProfileExtractor()
-    test_cases = [
-        "Hi! I am a 22 year old female. My weight is 68 kg and my height is 175 cm. I am a beginner and very active. My goals are weight loss and muscle building.",
-        "Male, 30 yrs old, weigh 180 pounds, 5'9 tall, intermediate fitness level, moderately active, goal: endurance and strength",
-        "I'm a 40 years old woman, 60kg, 165cm, advanced level, lightly active, want flexibility and fat loss",
-        "25yo man, 1.80m tall, 75kg, beginner, sedentary, want to get fit and build muscle",
-        "Female, age 35, 5 ft 6 in, 140 lbs, very active, intermediate, goals: general fitness"
+
+    # Get user input live from terminal
+    user_input = input("Please enter your fitness info paragraph:\n")
+
+    profile_obj = extractor.extract(user_input)
+    profile_dict = profile_obj.to_dict()
+
+    # Ensure all keys exist for consistency
+    all_keys = [
+        "age", "gender", "weight", "height", "bmi", "bmi_category",
+        "fitness_level", "activity_level", "goals",
+        "nutrition_preferences", "schedule_preferences",
+        "medical_conditions", "equipment_available"
     ]
+    for key in all_keys:
+        if key not in profile_dict:
+            profile_dict[key] = None if key not in ["medical_conditions", "equipment_available", "goals"] else []
 
-    profiles = []
-    for text in test_cases:
-        profile_obj = extractor.extract(text)
-        profile_dict = profile_obj.to_dict()
-        # Ensure all keys exist for consistency
-        all_keys = [
-            "age", "gender", "weight", "height", "bmi", "bmi_category",
-            "fitness_level", "activity_level", "goals",
-            "nutrition_preferences", "schedule_preferences",
-            "medical_conditions", "equipment_available"
-        ]
-        for key in all_keys:
-            if key not in profile_dict:
-                profile_dict[key] = None if key not in ["medical_conditions", "equipment_available", "goals"] else []
-        profiles.append(profile_dict)
+    # Determine script directory
+    script_dir = os.path.dirname(__file__)
 
-    # Save to JSON
-    with open("fitness_profiles.json", "w", encoding="utf-8") as f:
-        json.dump(profiles, f, indent=2, ensure_ascii=False)
-    print(f"Saved {len(profiles)} profiles to 'fitness_profiles.json'")
+    # Create output folder '../../data' relative to script
+    output_dir = os.path.join(script_dir, "..", "..", "data")
+    os.makedirs(output_dir, exist_ok=True)
+
+    # Output file path
+    output_path = os.path.join(output_dir, "fitness_profiles.json")
+
+    # Save JSON (append if file exists)
+    if os.path.exists(output_path):
+        # Load existing profiles
+        with open(output_path, "r", encoding="utf-8") as f:
+            existing_profiles = json.load(f)
+    else:
+        existing_profiles = []
+
+    existing_profiles.append(profile_dict)
+
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(existing_profiles, f, indent=2, ensure_ascii=False)
+
+    print(f"Profile saved to '{output_path}'")
 
 if __name__ == "__main__":
     main()

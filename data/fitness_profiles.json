@@ -1,0 +1,20 @@
+[
+  {
+    "age": 22,
+    "weight": 68.0,
+    "height": 175.0,
+    "bmi": 22.2,
+    "bmi_category": "normal",
+    "fitness_level": "beginner",
+    "goals": [
+      "muscle building",
+      "weight loss"
+    ],
+    "gender": "female",
+    "activity_level": "very active",
+    "nutrition_preferences": null,
+    "schedule_preferences": null,
+    "medical_conditions": [],
+    "equipment_available": []
+  }
+]
