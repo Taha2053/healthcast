@@ -1,19 +1,21 @@
 # Motivational Script
 
-*(Upbeat, energetic intro music starts and fades into the background)*
+*(Upbeat, energetic intro music starts and fades to the background)*
 
-**Host (AI Coach):** What's up, superstar! It’s your friendly AI Fitness Coach, and I am FIRED UP. Why? Because I’ve just finished calibrating your personal blueprint for success, and it is looking absolutely awesome.
+Hey! What is UP, champ! It’s your friendly AI coach, and I am absolutely fired up looking at your plan for the week. You’re 22, you’re ready to build some serious muscle, and this is the roadmap to get it done. Let’s go!
 
-You told me you’re ready to build some serious muscle, and you’ve got that 6 PM weekday slot ready to go. So, let’s make it happen!
+First up: your workouts. That 6pm slot is perfect. You get to shake off the day and channel all that energy into building a stronger you. We’re on a killer Push-Pull-Legs split this week.
 
-This week is all about laying the foundation. We're jumping into a killer Push-Pull-Legs split. On Monday and Thursday, we’re gonna be building that powerful chest and those boulder shoulders on our **Push Days**. Tuesday and Friday, it’s all about crafting that V-taper back and building strong biceps on our **Pull Days**. And Wednesday? Oh, you know it. We are NEVER skipping **Leg Day**!
+Monday, we kick things off with a powerful **Push Day**. Think chest, shoulders, triceps—we're building that armor. Tuesday, it’s **Pull Day**, where we carve out that back and build those biceps. Wednesday… you know what it is. **LEG DAY!** We don’t skip leg day; we build a foundation of strength.
 
-We’ll cap off the hard work with a high-energy HIIT session on Saturday to torch fat and boost your metabolism. Then comes Sunday—your champion’s rest day. That’s when the real growth happens, so embrace it!
+Then we run it right back! Thursday and Friday are another round of Push and Pull to really maximize that muscle growth. On Saturday, we switch gears and torch calories with some high-intensity **HIIT** training to keep you lean and athletic.
 
-Now, the work in the gym is only half the battle. I’ve analyzed your nutrition data, and we’re making a simple, powerful switch: boosting that protein to fuel your gains. We’re talking lean chicken, fish, eggs… this is the high-quality fuel your body is craving to repair and build.
+And Sunday? We rest. That is just as important as the lifts, my friend. That is when your body rebuilds and grows stronger.
 
-Look, you’ve got the goal. You’ve got the schedule. And now, you have the perfect plan. Your only job is to show up and give it your all. Every workout you complete, every meal you stick to, you're casting a vote for the stronger, more powerful version of yourself.
+Now, let's talk fuel, because you can't build a house without bricks! We’re kicking those low-protein habits to the curb. Your nutrition plan is simple and packed with power. We're talking oats and eggs, chicken and rice, fish and quinoa. Each day is centered around high-quality protein to repair and build the muscle you're working so hard for in the gym.
 
-You've got this. I know you do. Now let's get to work!
+This is your blueprint for success. The plan is here. All you have to do is show up, put in the work, and fuel your body right. Be consistent, trust the process, and watch the results happen.
 
-*(Upbeat music swells and fades out)*
+You’ve got this. Now let’s have an amazing week. Go crush it!
+
+*(Upbeat, energetic music swells and fades out)*
