@@ -31,6 +31,7 @@
 ---
 
 ## 📂 Project Structure 
+```
 ├── .env
 ├── .gitignore
 ├── app
@@ -69,6 +70,8 @@
 ├── tests
 │   └── test_pipeline.py
 └── tree_structure.py
+app.py
+```
 ---
 
 ## ⚙️ Installation  
