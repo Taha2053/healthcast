@@ -2,7 +2,7 @@ VIDEO DEMO : https://drive.google.com/file/d/1oVrhzNU4x1WAlrAfJtmd057GT9sPLTx8/v
 
 # Healthcast 🎧🏋️‍♀️🍎  
 
-**Healthcast** is an AI-powered app that transforms a simple natural language prompt about your health, lifestyle, and goals into a **personalized fitness & nutrition plan**. It produces an engaging **podcast-style audio file** along with a **short markdown summary** that acts as a quick guide.  
+**Healthcast** is an AI-powered app that transforms a simple natural language prompt about your health, lifestyle, and goals into a **personalized fitness & nutrition plan**. It produces an engaging **podcast-style audio file** along with a **short markdown summary** that acts as a quick guide.
 
 ---
 
